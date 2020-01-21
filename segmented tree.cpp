@@ -97,3 +97,46 @@ int t,index,val;
  disp(a,n);
 return 0;
 }
+/*
+finding maximum in a range
+#define ll long long int
+ll construct_st(vector<ll>a,int lo,int hi,vector<ll>&st,int k)
+{
+	if(lo==hi)
+	{
+		st[k]=a[lo];
+		return a[lo];
+	}
+	int mid=(hi+lo)/2;
+	ll l_m=construct_st(a,lo,mid,st,2*k+1);
+	ll r_m=construct_st(a,mid+1,hi,st,2*k+2);
+	st[k]=max(r_m,l_m);
+return st[k];	
+}
+vector<ll> construct(vector<ll>a,int n)
+{
+	int x=(int)ceil(log2(n));//height of tree
+	int mx_size=2*pow(2,x)-1;//size of tree
+	
+	vector<ll>st(mx_size,0);
+	construct_st(a,0,n-1,st,0);
+	
+return st;	
+}
+ll find_max_st(vector<ll>st,int lo,int hi,int l,int r,int k)
+{   
+	if(l <=lo && hi<=r) // l  lo k  hi r
+	  return st[k];
+	if(hi<l || lo>r) // l  r lo hi   or  lo hi l r
+	  return INT_MIN;
+	    
+	int mid=(hi+lo)/2;
+	ll p=find_max_st(st,lo,mid,l,r,2*k+1);
+	ll q=find_max_st(st,mid+1,hi,l,r,2*k+2);
+	return p>=q?p:q;
+}
+ll find_max(vector<ll>st,int n,int l,int r)
+{	 
+	return find_max_st(st,0,n-1,l,r,0) ;	 
+}
+*/
