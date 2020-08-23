@@ -1,3 +1,12 @@
+/*
+You are given an array  of  elements. A list of integers,  is given as an input, find the maximum value of quries[j]^each array[i] for all 0<=i<n
+EX:
+n=5
+arr=[5 ,1 ,7 ,4 ,3]
+q:2
+  2
+  0
+*/
 #include<bits/stdc++.h>
 using namespace std;
 struct trie{
